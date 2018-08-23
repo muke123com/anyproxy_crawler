@@ -78,7 +78,8 @@ wechatIo.on('connection', function (socket) {
 
 
 function injectJquery(body) {
-    return body.replace(/<\/head>/g, '<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.0.4/socket.io.js"></script></head>')
+    // return body.replace(/<\/head>/g, '<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.0.4/socket.io.js"></script></head>')
+    return body
 }
 
 var injectJsFile = fs.readFileSync('./m_injectJs.js', 'utf-8').replace('{$IP}', ip);
@@ -88,7 +89,7 @@ var articleInjectJs = `<script id="injectJs" type="text/javascript">${articleInj
 var fakeImg = fs.readFileSync('./fake.png');
 const maxLength = 30;
 var stop = 0;
-var testUrl = 'https://account.quandashi.com/passport/login';
+var testUrl = 'https://image.baidu.com/search/index';
 module.exports = {
     summary: 'wechat articles crawler',
     *beforeSendRequest(requestDetail) {
